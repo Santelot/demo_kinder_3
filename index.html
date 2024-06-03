@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K1 Misión 1/1 Retroalimentación</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .banner .summary {
+            font-size: 0.9em;
+            color: white;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .content .section {
+            margin-bottom: 15px;
+        }
+        .content .section-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .note {
+            background-color: #ffeb3b;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '35') {
+                document.getElementById('activity-5').style.display = 'none';
+            } else if (selectedTime === '30') {
+                document.getElementById('activity-4').style.display = 'none';
+                document.getElementById('activity-5').style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body onload="updateActivities()">
+
+<h1>K1 Misión 1/1 Retroalimentación</h1>
+
+<div class="note">
+    <strong>PREPARACIÓN DE MISIÓN:</strong>
+    <p>Antes de iniciar la misión, asegúrate de tener todos los materiales listos y haber revisado los recursos adicionales.</p>
+</div>
+
+<div class="dropdown">
+    <label for="time-select">Tiempo efectivo de Clase:</label>
+    <select id="time-select" onchange="updateActivities()">
+        <option value="40">40 minutos</option>
+        <option value="35">35 minutos</option>
+        <option value="30">30 minutos</option>
+    </select>
+</div>
+
+<h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 40 minutos</h2>
+
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('saludo')">
+        <div class="title">
+            <span>📚 Actividad 1</span>
+            <span>⏰ Tiempo: 5 minutos</span>
+        </div>
+        <div class="subtitle">Saludo y Canción</div>
+        <div class="summary">Captar la atención de los niños e introducir la misión del día de manera lúdica y divertida.</div>
+    </div>
+    <div id="saludo" class="content">
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Hola, genios verdes! Hoy vamos a construir una ciudad muy especial, ¡una Ciudad Verde! ¿Saben qué es una Ciudad Verde?</div>
+            <div class="dialogue">Vamos a empezar con una canción divertida sobre cómo podemos cuidar nuestro planeta. ¡Vamos a cantar juntos!</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Acción</div>
+            <p>Dar la bienvenida a los estudiantes y presentar brevemente el tema del día.</p>
+            <p>Reproducir la <a href="https://www.youtube.com/watch?v=UorQi7gj8sk" target="_blank">canción sobre ecología</a>.</p>
+            <p>Los niños pueden cantar y bailar junto con la canción.</p>
+        </div>
+    </div>
+</div>
+
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('innovacion')">
+        <div class="title">
+            <span>📚 Actividad 2</span>
+            <span>⏰ Tiempo: 5 minutos</span>
+        </div>
+        <div class="subtitle">Innovación del Día</div>
+        <div class="summary">Inspirar a los estudiantes mostrando una aplicación real de la innovación.</div>
+    </div>
+    <div id="innovacion" class="content">
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora vamos a ver un video inspirador sobre cómo algunas personas están haciendo del mundo un lugar mejor con sus ciudades verdes y sostenibles. ¡Vamos a verlo juntos!</div>
+            <div class="dialogue">¿Qué les pareció el video? ¿Qué les gustó más de las ciudades verdes?</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Acción</div>
+            <p>Proyectar el <a href="https://www.youtube.com/watch?v=klXzLBFL8Qs" target="_blank">video sobre ciudades verdes y sostenibles</a>.</p>
+            <p>Discutir brevemente lo que vieron en el video.</p>
+        </div>
+    </div>
+</div>
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('introduccion')">
+        <div class="title">
+            <span>📚 Actividad 3</span>
+            <span>⏰ Tiempo: 5 minutos</span>
+        </div>
+        <div class="subtitle">Introducción Lúdica y Instrucción de Programación</div>
+        <div class="summary">Introducir la misión del día, explicar cómo hacer los edificios amigables con el planeta y preparar a los estudiantes para la actividad principal.</div>
+    </div>
+    <div id="introduccion" class="content">
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Vamos a usar nuestra imaginación para construir una Ciudad Verde. ¿Cómo creen que podemos hacer nuestros edificios más ecológicos y amigables con el medio ambiente?</div>
+            <div class="dialogue">Vamos a ver algunas ideas de cómo podemos hacer nuestros edificios ecológicos. ¿Listos?</div>
+            <div class="dialogue">Piensen en cómo podemos hacer que estos edificios sean amigables con la naturaleza. ¿Podemos poner paneles solares? ¿Podemos agregar muchos árboles y plantas?</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Acción</div>
+            <p>Proyectar la diapositiva de introducción a la misión.</p>
+            <p>Mostrar las tarjetas con los diferentes tipos de edificios y elementos de una ciudad.</p>
+            <p>Proyectar la diapositiva con ejemplos de transformaciones verdes.</p>
+            <p>Hacer preguntas detonadoras para inspirar a los niños:</p>
+            <ul>
+                <li>¿Cómo se vería un hospital con muchos árboles?</li>
+                <li>¿Qué pasaría si tuviéramos una escuela con jardines en el techo?</li>
+            </ul>
+            <p>Lista de Transformaciones Verdes:</p>
+            <ul>
+                <li>Jardines en el techo</li>
+                <li>Paneles solares</li>
+                <li>Muros verdes (paredes cubiertas de plantas)</li>
+                <li>Ventanas grandes para aprovechar la luz natural</li>
+                <li>Parques en miniatura</li>
+                <li>Uso de materiales reciclados</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('exploracion')">
+        <div class="title">
+            <span>📚 Actividad 4</span>
+            <span>⏰ Tiempo: 10 minutos</span>
+        </div>
+        <div class="subtitle">Actividad de Exploración</div>
+        <div class="summary">Facilitar la comprensión del concepto de una Ciudad Verde mediante una actividad práctica.</div>
+    </div>
+    <div id="exploracion" class="content">
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora es el momento de empezar a construir. Elijan una tarjeta y piensen en cómo pueden hacer ese edificio ecológico.</div>
+            <div class="dialogue">Recuerden, pueden usar su imaginación. ¡No hay respuestas incorrectas!</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Acción</div>
+            <p>Repartir las tarjetas y los materiales de construcción.</p>
+            <p>Los niños trabajan en pequeños grupos para construir sus edificios ecológicos.</p>
+            <p>El maestro circula por el aula, ofreciendo ideas y apoyo.</p>
+        </div>
+    </div>
+</div>
+
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('exploracion-extra')">
+        <div class="title">
+            <span>📚 Actividad 5</span>
+            <span>⏰ Tiempo: 5 minutos</span>
+        </div>
+        <div class="subtitle">Actividad de Exploración Tiempo Extra</div>
+        <div class="summary">Ofrecer tiempo adicional para la construcción si el horario lo permite.</div>
+    </div>
+    <div id="exploracion-extra" class="content">
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Si necesitan más tiempo para terminar sus edificios, pueden seguir construyendo por unos minutos más.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Acción</div>
+            <p>Los niños continúan trabajando en sus edificios ecológicos.</p>
+            <p>El maestro sigue ofreciendo apoyo y sugerencias.</p>
+        </div>
+    </div>
+</div>
+
+<div id="activity-6" class="activity">
+    <div class="banner" onclick="toggleContent('retroalimentacion')">
+        <div class="title">
+            <span>📚 Actividad 6</span>
+            <span>⏰ Tiempo: 7 minutos</span>
+        </div>
+        <div class="subtitle">Retroalimentación</div>
+        <div class="summary">Enseñar a los niños a dar retroalimentación positiva utilizando ejemplos verbales y visuales.</div>
+    </div>
+    <div id="retroalimentacion" class="content">
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora que hemos construido nuestra Ciudad Verde, vamos a aprender algo muy importante: cómo dar comentarios positivos.</div>
+            <div class="dialogue">Cuando vemos algo que nos gusta, podemos decir cosas bonitas sobre el trabajo de nuestros amigos. Vamos a practicar cómo hacerlo.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Acción</div>
+            <p>Mostrar imágenes de edificios ecológicos bien hechos y ejemplos de cómo dar comentarios positivos.</p>
+            <p>El maestro proporciona ejemplos verbales de comentarios positivos:</p>
+            <ul>
+                <li>"Me gusta tu edificio porque tiene muchos árboles."</li>
+                <li>"Es genial que tu escuela tenga paneles solares."</li>
+            </ul>
+            <p>Los niños practican dando retroalimentación positiva sobre los edificios de los compañeros.</p>
+        </div>
+    </div>
+</div>
+
+<div id="activity-7" class="activity">
+    <div class="banner" onclick="toggleContent('union-edificios')">
+        <div class="title">
+            <span>📚 Actividad 7</span>
+            <span>⏰ Tiempo: 3 minutos</span>
+        </div>
+        <div class="subtitle">Unir los Edificios y Reflexión</div>
+        <div class="summary">Crear una "Ciudad Verde" y reflexionar sobre lo aprendido.</div>
+    </div>
+    <div id="union-edificios" class="content">
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Genial! Ahora vamos a juntar todos nuestros edificios para crear nuestra Ciudad Verde.</div>
+            <div class="dialogue">Vamos a encontrarles un lugar en nuestra ciudad.</div>
+            <div class="dialogue">¿Qué les pareció la actividad de hoy? ¿Qué aprendieron sobre cómo podemos construir una Ciudad Verde?</div>
+            <div class="dialogue">¿Qué les gustaría construir la próxima vez para hacer nuestra ciudad aún más ecológica?</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Acción</div>
+            <p>Los niños juntan sus edificios en un espacio designado del aula.</p>
+            <p>El maestro ayuda a organizar la "Ciudad Verde" de manera colaborativa.</p>
+            <p>Tomar una foto de la Ciudad Verde para documentar el trabajo.</p>
+            <p>Proyectar la diapositiva de cierre y reflexión.</p>
+            <p>Facilitar una discusión en grupo sobre lo aprendido y las experiencias de los estudiantes.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
